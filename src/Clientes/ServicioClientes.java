@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author jprod
  */
-public class ServicioClientes {
+public class ServicioClientes implements ServicioClientesProxy {
     private final RepositorioClientes repo;
     
     public ServicioClientes(RepositorioClientes r){ 
