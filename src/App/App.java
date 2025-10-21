@@ -13,6 +13,7 @@ import Notificaciones.CanalNotificacion;
 import Notificaciones.ServicioNotificaciones;
 import Catalogo.Categoria;
 import Catalogo.Producto;
+import Catalogo.ProductoFactory;
 import Catalogo.RepositorioCategorias;
 import Catalogo.RepositorioProductos;
 import Catalogo.ServicioCatalogo;
@@ -25,9 +26,10 @@ import java.util.Scanner;
 
 public class App {
     private static final Scanner sc = new Scanner(System.in);
-
+    private static ProductoFactory FactoryProduc = new ProductoFactory();
     private static final String OK  = "✅ ";
     private static final String ERR = "❌ ";
+    private static RepositorioProductos ProductoRepo = new RepositorioProductos();
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         System.setOut(new java.io.PrintStream(System.out, true, "UTF-8"));
@@ -146,7 +148,8 @@ public class App {
                         System.out.println(ERR + "Ya existe un producto con ese código.");
                         break;
                     }
-                    catalogo.crearProducto(new Producto(codigo,nombre,precio,stock,cat));
+                    Producto item = FactoryProduc.CrearProducto(codigo, nombre, precio, stock, cat);
+                    ProductoRepo.guardar(item);
                     System.out.println(OK + "Producto creado.");
                 } catch (NumberFormatException e){
                     System.out.println(ERR + "Precio/Stock inválidos.");
