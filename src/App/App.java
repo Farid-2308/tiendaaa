@@ -41,6 +41,8 @@ public class App {
 
         ServicioCatalogo servCata = new ServicioCatalogo(repoCate, repoProd);
         ServicioClientes servClie = new ServicioClientes(repoClie);
+        RepositorioClientes repo = new RepositorioClientes();
+        ServicioClientes servicio = new ServicioClientes(repo);
         ServicioNotificaciones servNoti = new ServicioNotificaciones();
         ServicioFacturacion servFact = new ServicioFacturacion(repoFact, servNoti);
 
