@@ -58,3 +58,7 @@ El diseño sigue principios de **buenas prácticas**, **encapsulamiento**, **sep
 └── README.md
 
 ## 🧩 Patrones de diseño aplicados
+Se aplico prooxy en el paquete clientes, se hizo la interface y se creo y modifico las demas clases de manera que se logra aplicar de manera correcta, 
+ServicioClientesProxy es la interface creada con los mismos metodos que habien en la clase original, luego en ServicioClientee se hereda de la interface 
+para utilizar los metodos, luego se creo la clase necesaria de proxy la cual se llama ProxyEnServicioCliente en la cual se utiliza la interface con proxy al creaar 
+nuevos clientes o modificar clientes antes de tocar la clase original lo hara en la clase copia y luego lo hara en la original 
